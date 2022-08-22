@@ -8,13 +8,7 @@ CORS(app)
 @app.route('/get-dups', methods=['GET'])
 def get_dups():
     html = request.args.get('html')
-    return jsonify(getDups(str(html)))
-
-
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    return jsonify(getDups(html))
 
 if __name__ == "__main__":
     app.run(debug=True)
